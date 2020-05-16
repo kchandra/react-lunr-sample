@@ -6,13 +6,12 @@ var mime = require('mime-types')
 
 exports.get = function(event, context, callback) {
   console.log(JSON.stringify(event));
-  console.log(JSON.stringify(context));
-  console.log(JSON.stringify(callback));
+
   var result = {
     statusCode: 404
   }
   
-  if(event.resource === "/") {
+  if(event.resource == "/") {
     const contents = fs.readFileSync(`build${path.sep}index.html`);
     result = {
       statusCode: 200,
@@ -22,6 +21,7 @@ exports.get = function(event, context, callback) {
   }
   
   if(event.resource == "{/proxy+}") {
+    console.log(mime.lookup(event.path));
     const contents = fs.readFileSync(`build${event.path}`);
     result = {
       statusCode: 200,
