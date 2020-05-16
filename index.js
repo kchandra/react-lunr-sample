@@ -19,8 +19,10 @@ exports.get = function(event, context, callback) {
       headers: {'content-type': 'text/html'}
     };
   }
-  
+  console.log(event.resource);
+  console.log(event.resource == "{/proxy+}");
   if(event.resource == "{/proxy+}") {
+    console.log(event.resource);
     console.log(mime.lookup(event.path));
     const contents = fs.readFileSync(`build${event.path}`);
     result = {
