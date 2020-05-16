@@ -35,23 +35,12 @@ Resources:
         - LambdaExecutionRole
         - Arn
       Events:
-        GetEvent:
+        Root:
           Type: Api
           Properties:
             Path: /
             Method: get
-  GetReactLunrSampleProxy:
-    Type: AWS::Serverless::Function
-    Properties:
-      FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-GetReactLunrSample'
-      Handler: index.get
-      Runtime: nodejs12.x
-      Role:
-        Fn::GetAtt:
-        - LambdaExecutionRole
-        - Arn
-      Events:
-        GetEvent:
+        Proxy:
           Type: Api
           Properties:
             Path: /{proxy+}
