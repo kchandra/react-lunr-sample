@@ -38,12 +38,12 @@ Resources:
         GetEvent:
           Type: Api
           Properties:
-            Path: /{proxy+}
+            Path: /
             Method: get
         GetEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /{proxy+}
             Method: get
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
