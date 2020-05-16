@@ -38,24 +38,8 @@ Resources:
         GetEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /{proxy+}
             Method: get
-    GetReactLunrSampleHello:
-      Type: AWS::Serverless::Function
-      Properties:
-        FunctionName: !Sub 'awscodestar-${ProjectId}-lambda-GetReactLunrSample'
-        Handler: index.proxy
-        Runtime: nodejs12.x
-        Role:
-          Fn::GetAtt:
-          - LambdaExecutionRole
-          - Arn
-        Events:
-          GetEvent:
-            Type: Api
-            Properties:
-              Path: /proxy
-              Method: get
   LambdaExecutionRole:
     Description: Creating service role in IAM for AWS Lambda
     Type: AWS::IAM::Role
