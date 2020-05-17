@@ -20,6 +20,7 @@ exports.get = function(event, context, callback) {
     };
   }
   console.log(event.resource);
+  console.log(typeof event.resource);
   console.log(event.resource == "{/proxy+}");
   if(event.resource == "{/proxy+}") {
     console.log(event.resource);
