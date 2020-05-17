@@ -20,9 +20,9 @@ phases:
       - aws s3 cp --recursive build/ s3://$WEBSITE_S3_BUCKET/build/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
       - sed -i -e "s|/static/|/Prod/static/|g" build/index.html
       - sed -i -e "s|/favicon.ico|/Prod/favicon.ico|g" build/index.html
-      - sed -i -e "s|/logo192.png|/Prod/build/logo192.png|g" build/index.html
-      - sed -i -e "s|/logo512.png|/Prod/build/logo512.png|g" build/index.html
-      - sed -i -e "s|/manifest.json|/Prod/build/manifest.json|g" build/index.html
+      - sed -i -e "s|/logo192.png|/Prod/logo192.png|g" build/index.html
+      - sed -i -e "s|/logo512.png|/Prod/logo512.png|g" build/index.html
+      - sed -i -e "s|/manifest.json|/Prod/manifest.json|g" build/index.html
       - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
   post_build:
     commands:
