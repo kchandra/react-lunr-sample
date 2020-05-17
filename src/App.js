@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-function App() {
+function App() {  
   return (
     <div className="App">
       <header className="App-header">
-        <img src="/logo.svg" className="App-logo" alt="logo" />
+        <img src={`${process.env.NODE_ENV === "development" ? '' : '/Prod'}/logo.svg`} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
